@@ -108,6 +108,25 @@ window.onscroll = function () {
 }
 
 
+// navbar route
+let navBarLinks = document.querySelectorAll(".navbar a")
+navBarLinks.forEach(link=>{
+  link.addEventListener("click", (e)=>{
+    e.preventDefault();
+    document.querySelectorAll(".active").forEach(el=>{
+      el.classList.remove("active")
+    })
+    e.target.classList.add("active")
+    let line = document.querySelector("#line")
+    if (e.target.dataset.section == 'weather') {
+      document.documentElement.scrollTop = window.innerHeight + line.offsetHeight
+    }else {
+      document.documentElement.scrollTop = 0
+    }
+  })
+})
+
+
 
 
 
